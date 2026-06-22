@@ -4,542 +4,514 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#0B0F19">
-    <meta name="description" content="Super Prontuário Médico e Odontológico - PWA Inteligente">
+    <meta name="description" content="NeuroPront - Super Prontuário Médico e Odontológico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>NeuroPront - Super Prontuário Médico & Odontológico</title>
+    <title>NeuroPront - Prontuário Inteligente</title>
 </head>
-<body>
-    <!-- Sidebar Navegação -->
-    <nav class="sidebar glass" id="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <circle cx="20" cy="20" r="18" stroke="url(#grad1)" stroke-width="2"/>
-                    <path d="M12 20h16M20 12v16" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="14" cy="14" r="2" fill="#00FF88"/>
-                    <circle cx="26" cy="26" r="2" fill="#00D4FF"/>
-                    <defs>
-                        <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
-                            <stop offset="0%" stop-color="#00D4FF"/>
-                            <stop offset="100%" stop-color="#00FF88"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <span class="logo-text">NeuroPront</span>
-            </div>
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-        </div>
-        
-        <div class="sidebar-menu">
-            <div class="menu-section">
-                <span class="menu-label">Paciente</span>
-                <a href="#" class="menu-item active" data-tab="dashboard">
-                    <svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="7" height="7" rx="1" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1" fill="currentColor"/></svg>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#" class="menu-item" data-tab="soap">
-                    <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.5"/></svg>
-                    <span>Evolução (SOAP)</span>
-                </a>
-                <a href="#" class="menu-item" data-tab="receitas">
-                    <svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4v12M14 4v12M4 8h12M4 12h12" stroke="currentColor" stroke-width="1.5"/></svg>
-                    <span>Receituário</span>
-                </a>
-            </div>
-            
-            <div class="menu-section">
-                <span class="menu-label">Documentos</span>
-                <a href="#" class="menu-item" data-tab="atestados">
-                    <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 3h12v14H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 7h6M7 10h6M7 13h4" stroke="currentColor" stroke-width="1"/></svg>
-                    <span>Atestados</span>
-                </a>
-                <a href="#" class="menu-item" data-tab="orcamentos">
-                    <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v8M7 9h6" stroke="currentColor" stroke-width="1.5"/></svg>
-                    <span>Orçamentos</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="sidebar-footer">
-            <div class="theme-toggle">
-                <button id="themeToggle" class="neon-btn small" aria-label="Alternar tema">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" id="themeIcon">
-                        <path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M4.93 4.93l.7.7m12.74 12.74l.7.7M4.93 19.07l.7-.7m12.74-12.74l.7-.7M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar glass" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="url(#grad1)" stroke-width="2"/>
+                        <path d="M12 20h16M20 12v16" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="14" cy="14" r="2" fill="#00FF88"/>
+                        <circle cx="26" cy="26" r="2" fill="#00D4FF"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#00D4FF"/>
+                                <stop offset="100%" stop-color="#00FF88"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">NeuroPront</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
-                <span class="theme-label">Light</span>
             </div>
-            <div class="offline-status">
-                <span class="status-dot" id="statusDot"></span>
-                <span id="statusText">Online</span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        <header class="topbar glass">
-            <div class="patient-selector">
-                <select id="patientSelect" class="neon-select">
-                    <option value="1">Maria da Silva - 45 anos</option>
-                    <option value="2">João Santos - 32 anos</option>
-                    <option value="3">Ana Oliveira - 28 anos</option>
-                    <option value="4">Carlos Pereira - 55 anos</option>
-                </select>
-            </div>
-            <div class="topbar-actions">
-                <button class="neon-btn" id="exportDocx" aria-label="Exportar Word">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Exportar .docx</span>
-                </button>
-                <button class="neon-btn" id="printBtn" aria-label="Imprimir">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2"/><path d="M6 14h12v8H6z" stroke="currentColor" stroke-width="2"/></svg>
-                    <span>Imprimir</span>
-                </button>
-            </div>
-        </header>
-
-        <div class="content-area" id="contentArea">
-            <!-- TAB: Dashboard -->
-            <section class="tab-content active" id="tab-dashboard">
-                <div class="dashboard-grid">
-                    <div class="glass-card patient-summary">
-                        <h3 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2" stroke="currentColor" stroke-width="2"/></svg>
-                            Resumo do Paciente
-                        </h3>
-                        <div class="patient-info">
-                            <div class="info-row">
-                                <span class="info-label">Nome:</span>
-                                <span class="info-value" id="patientName">Maria da Silva</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Idade:</span>
-                                <span class="info-value" id="patientAge">45 anos</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Sexo:</span>
-                                <span class="info-value">Feminino</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">CPF:</span>
-                                <span class="info-value">123.456.789-00</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Convênio:</span>
-                                <span class="info-value badge">Unimed</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card vital-signs">
-                        <h3 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-3 3 3 3-3 2 3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                            Sinais Vitais
-                        </h3>
-                        <div class="vitals-grid">
-                            <div class="vital-item">
-                                <span class="vital-value">120/80</span>
-                                <span class="vital-label">PA (mmHg)</span>
-                            </div>
-                            <div class="vital-item">
-                                <span class="vital-value">72</span>
-                                <span class="vital-label">FC (bpm)</span>
-                            </div>
-                            <div class="vital-item">
-                                <span class="vital-value">36.5°C</span>
-                                <span class="vital-label">Temperatura</span>
-                            </div>
-                            <div class="vital-item">
-                                <span class="vital-value">98%</span>
-                                <span class="vital-label">SpO2</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card last-consultation">
-                        <h3 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/></svg>
-                            Última Consulta
-                        </h3>
-                        <div class="consultation-info">
-                            <p class="consultation-date">15/01/2025</p>
-                            <p class="consultation-diagnosis">Diagnóstico: Hipertensão Arterial Sistêmica (I10)</p>
-                            <div class="consultation-actions">
-                                <button class="neon-btn small" onclick="loadLastSOAP()">Carregar SOAP</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card medication-summary">
-                        <h3 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10 8h4M6 12h12M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                            Medicações em Uso
-                        </h3>
-                        <ul class="medication-list" id="medicationList">
-                            <li>Losartana 50mg - 1x/dia</li>
-                            <li>Hidroclorotiazida 25mg - 1x/dia</li>
-                            <li>Sinvastatina 20mg - 1x/noite</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card clinical-history">
-                        <h3 class="card-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18V3H3z" stroke="currentColor" stroke-width="2"/></svg>
-                            Histórico Clínico
-                        </h3>
-                        <div class="timeline" id="timeline">
-                            <div class="timeline-item">
-                                <span class="timeline-date">Jan 2025</span>
-                                <p>Consulta de rotina - PA controlada</p>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-date">Out 2024</span>
-                                <p>Exame de sangue - Colesterol elevado</p>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-date">Jun 2024</span>
-                                <p>Início do tratamento para HAS</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card full-width quick-actions">
-                        <h3 class="card-title">Ações Rápidas</h3>
-                        <div class="action-buttons">
-                            <button class="neon-btn" onclick="switchTab('soap')">
-                                <svg width="18" height="18" viewBox="0 0 20 20"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.5"/></svg>
-                                Nova Evolução
-                            </button>
-                            <button class="neon-btn" onclick="switchTab('receitas')">
-                                <svg width="18" height="18" viewBox="0 0 20 20"><path d="M6 4v12M14 4v12M4 8h12M4 12h12" stroke="currentColor" stroke-width="1.5"/></svg>
-                                Nova Receita
-                            </button>
-                            <button class="neon-btn" onclick="switchTab('atestados')">
-                                <svg width="18" height="18" viewBox="0 0 20 20"><path d="M4 3h12v14H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 7h6M7 10h6M7 13h4" stroke="currentColor" stroke-width="1"/></svg>
-                                Novo Atestado
-                            </button>
-                            <button class="neon-btn" onclick="switchTab('orcamentos')">
-                                <svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v8M7 9h6" stroke="currentColor" stroke-width="1.5"/></svg>
-                                Novo Orçamento
-                            </button>
-                        </div>
-                    </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <span class="menu-label">Paciente</span>
+                    <a href="#" class="menu-item active" data-tab="dashboard">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="7" height="7" rx="1" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1" fill="currentColor"/></svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="menu-item" data-tab="soap">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <span>Evolução (SOAP)</span>
+                    </a>
+                    <a href="#" class="menu-item" data-tab="receitas">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4v12M14 4v12M4 8h12M4 12h12" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <span>Receituário</span>
+                    </a>
                 </div>
-            </section>
+                
+                <div class="menu-section">
+                    <span class="menu-label">Documentos</span>
+                    <a href="#" class="menu-item" data-tab="atestados">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 3h12v14H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 7h6M7 10h6M7 13h4" stroke="currentColor" stroke-width="1"/></svg>
+                        <span>Atestados</span>
+                    </a>
+                    <a href="#" class="menu-item" data-tab="orcamentos">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v8M7 9h6" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <span>Orçamentos</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="neon-btn small" aria-label="Alternar tema">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" id="themeIcon">
+                            <path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M4.93 4.93l.7.7m12.74 12.74l.7.7M4.93 19.07l.7-.7m12.74-12.74l.7-.7M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <span class="theme-label">Tema</span>
+                </div>
+                <div class="offline-status">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Online</span>
+                </div>
+                <div class="version-info">v2.0.0</div>
+            </div>
+        </nav>
 
-            <!-- TAB: SOAP -->
-            <section class="tab-content" id="tab-soap">
-                <div class="soap-container">
-                    <div class="soap-header">
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <header class="topbar glass">
+                <div class="patient-selector">
+                    <label for="patientSelect" class="sr-only">Selecionar Paciente</label>
+                    <select id="patientSelect" class="neon-select">
+                        <option value="1">Maria da Silva - 45 anos</option>
+                        <option value="2">João Santos - 32 anos</option>
+                        <option value="3">Ana Oliveira - 28 anos</option>
+                        <option value="4">Carlos Pereira - 55 anos</option>
+                    </select>
+                </div>
+                <div class="topbar-actions">
+                    <button class="neon-btn" id="exportDocx" aria-label="Exportar Word">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Exportar</span>
+                    </button>
+                    <button class="neon-btn" id="printBtn" aria-label="Imprimir">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2"/><path d="M6 14h12v8H6z" stroke="currentColor" stroke-width="2"/></svg>
+                        <span>Imprimir</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-area" id="contentArea">
+                <!-- TAB: Dashboard -->
+                <section class="tab-content active" id="tab-dashboard">
+                    <div class="dashboard-grid">
+                        <div class="glass-card patient-summary">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2" stroke="currentColor" stroke-width="2"/></svg>
+                                Resumo do Paciente
+                            </h3>
+                            <div class="patient-info">
+                                <div class="info-row"><span class="info-label">Nome:</span><span class="info-value" id="patientName">Maria da Silva</span></div>
+                                <div class="info-row"><span class="info-label">Idade:</span><span class="info-value" id="patientAge">45 anos</span></div>
+                                <div class="info-row"><span class="info-label">Sexo:</span><span class="info-value">Feminino</span></div>
+                                <div class="info-row"><span class="info-label">CPF:</span><span class="info-value">123.456.789-00</span></div>
+                                <div class="info-row"><span class="info-label">Convênio:</span><span class="info-value badge">Unimed</span></div>
+                                <div class="info-row"><span class="info-label">Prontuário:</span><span class="info-value">#2025001</span></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card vital-signs">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-3 3 3 3-3 2 3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                Sinais Vitais
+                            </h3>
+                            <div class="vitals-grid">
+                                <div class="vital-item">
+                                    <span class="vital-value">120/80</span>
+                                    <span class="vital-label">PA (mmHg)</span>
+                                </div>
+                                <div class="vital-item">
+                                    <span class="vital-value">72</span>
+                                    <span class="vital-label">FC (bpm)</span>
+                                </div>
+                                <div class="vital-item">
+                                    <span class="vital-value">36.5°C</span>
+                                    <span class="vital-label">Temperatura</span>
+                                </div>
+                                <div class="vital-item">
+                                    <span class="vital-value">98%</span>
+                                    <span class="vital-label">SpO2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card last-consultation">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/></svg>
+                                Última Consulta
+                            </h3>
+                            <div class="consultation-info">
+                                <span class="consultation-date">15/01/2025</span>
+                                <span class="consultation-diagnosis">HAS (I10) - Controlada</span>
+                                <button class="neon-btn small" onclick="switchTab('soap')">Ver Detalhes</button>
+                            </div>
+                        </div>
+
+                        <div class="glass-card medication-summary">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10 8h4M6 12h12M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                Medicações
+                            </h3>
+                            <ul class="medication-list" id="medicationList">
+                                <li>Losartana 50mg - 1x/dia</li>
+                                <li>Hidroclorotiazida 25mg - 1x/dia</li>
+                                <li>Sinvastatina 20mg - 1x/noite</li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card clinical-history">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18V3H3z" stroke="currentColor" stroke-width="2"/></svg>
+                                Histórico
+                            </h3>
+                            <div class="timeline" id="timeline">
+                                <div class="timeline-item"><span class="timeline-date">Jan 2025</span><span>Consulta de rotina</span></div>
+                                <div class="timeline-item"><span class="timeline-date">Out 2024</span><span>Exame sangue - Colesterol alto</span></div>
+                                <div class="timeline-item"><span class="timeline-date">Jun 2024</span><span>Início tratamento HAS</span></div>
+                                <div class="timeline-item"><span class="timeline-date">Mar 2024</span><span>Check-up geral</span></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card full-width quick-actions">
+                            <h3 class="card-title">Ações Rápidas</h3>
+                            <div class="action-buttons">
+                                <button class="neon-btn" onclick="switchTab('soap')">
+                                    <svg width="18" height="18" viewBox="0 0 20 20"><path d="M4 4h12v12H4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.5"/></svg>
+                                    Nova Evolução
+                                </button>
+                                <button class="neon-btn" onclick="switchTab('receitas')">
+                                    <svg width="18" height="18" viewBox="0 0 20 20"><path d="M6 4v12M14 4v12M4 8h12M4 12h12" stroke="currentColor" stroke-width="1.5"/></svg>
+                                    Nova Receita
+                                </button>
+                                <button class="neon-btn" onclick="switchTab('atestados')">
+                                    <svg width="18" height="18" viewBox="0 0 20 20"><path d="M4 3h12v14H4z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                                    Novo Atestado
+                                </button>
+                                <button class="neon-btn" onclick="switchTab('orcamentos')">
+                                    <svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v8M7 9h6" stroke="currentColor" stroke-width="1.5"/></svg>
+                                    Novo Orçamento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: SOAP -->
+                <section class="tab-content" id="tab-soap">
+                    <div class="soap-container">
+                        <div class="soap-header">
+                            <h2 class="section-title">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/></svg>
+                                Evolução Clínica - SOAP
+                            </h2>
+                            <div class="soap-date">
+                                <label for="soapDate">Data:</label>
+                                <input type="date" class="neon-input date-input" id="soapDate">
+                            </div>
+                        </div>
+
+                        <div class="soap-grid">
+                            <div class="glass-card soap-block">
+                                <div class="soap-block-header">
+                                    <h3 class="card-title">S - Subjetivo</h3>
+                                    <span class="soap-badge">Queixa Principal</span>
+                                </div>
+                                <textarea class="neon-textarea" id="soapS" placeholder="Descreva a queixa principal, história da doença atual, sintomas..." rows="4"></textarea>
+                                <div class="structured-checkboxes">
+                                    <h4 class="symptoms-title">Sintomas Frequentes:</h4>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Dor"> <span>Dor</span></label>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Febre"> <span>Febre</span></label>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Tontura"> <span>Tontura</span></label>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Náusea"> <span>Náusea</span></label>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Cefaleia"> <span>Cefaleia</span></label>
+                                    <label class="neon-checkbox"><input type="checkbox" value="Dispneia"> <span>Dispneia</span></label>
+                                </div>
+                            </div>
+
+                            <div class="glass-card soap-block">
+                                <div class="soap-block-header">
+                                    <h3 class="card-title">O - Objetivo</h3>
+                                    <span class="soap-badge badge-green">Exame Físico</span>
+                                </div>
+                                <textarea class="neon-textarea" id="soapO" placeholder="Achados do exame físico, sinais vitais, exames complementares..." rows="4"></textarea>
+                                <div class="vitals-inputs">
+                                    <h4 class="symptoms-title">Sinais Vitais:</h4>
+                                    <div class="input-group"><label>PA:</label><input type="text" class="neon-input small" placeholder="120/80" id="vitalPA"></div>
+                                    <div class="input-group"><label>FC:</label><input type="number" class="neon-input small" placeholder="72" id="vitalFC"></div>
+                                    <div class="input-group"><label>Temp:</label><input type="text" class="neon-input small" placeholder="36.5" id="vitalTemp"></div>
+                                    <div class="input-group"><label>Sat:</label><input type="text" class="neon-input small" placeholder="98" id="vitalSat"></div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card soap-block">
+                                <div class="soap-block-header">
+                                    <h3 class="card-title">A - Avaliação</h3>
+                                    <span class="soap-badge badge-purple">Diagnóstico</span>
+                                </div>
+                                <textarea class="neon-textarea" id="soapA" placeholder="Diagnóstico, hipóteses diagnósticas, CID-10..." rows="4"></textarea>
+                                <div class="cid-input">
+                                    <label for="cidInput">CID-10 Principal:</label>
+                                    <input type="text" class="neon-input" id="cidInput" placeholder="Ex: I10, J00, E11" list="cidList">
+                                    <datalist id="cidList">
+                                        <option value="I10 - HAS Essencial">
+                                        <option value="J00 - Rinofaringite Aguda">
+                                        <option value="E11 - DM Tipo 2">
+                                        <option value="K02 - Cárie Dentária">
+                                        <option value="N39 - Infecção Urinária">
+                                        <option value="M54 - Lombalgia">
+                                        <option value="J06 - Infecção VAS">
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            <div class="glass-card soap-block">
+                                <div class="soap-block-header">
+                                    <h3 class="card-title">P - Plano</h3>
+                                    <span class="soap-badge badge-orange">Conduta</span>
+                                </div>
+                                <textarea class="neon-textarea" id="soapP" placeholder="Conduta, exames solicitados, encaminhamentos, medicamentos prescritos..." rows="4"></textarea>
+                                <div class="plan-actions">
+                                    <button class="neon-btn" onclick="addToPlan('medicacao')">+ Medicação</button>
+                                    <button class="neon-btn" onclick="addToPlan('exame')">+ Exame</button>
+                                    <button class="neon-btn" onclick="addToPlan('encaminhamento')">+ Encaminhamento</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="soap-actions">
+                            <button class="neon-btn primary" onclick="saveSOAP()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2"/><path d="M17 21v-8H7v8M7 3v5h8" stroke="currentColor" stroke-width="2"/></svg>
+                                Salvar Evolução
+                            </button>
+                            <button class="neon-btn" onclick="clearSOAP()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M8 6V4h8v2" stroke="currentColor" stroke-width="2"/><path d="M19 6l-1 14H6L5 6" stroke="currentColor" stroke-width="2"/></svg>
+                                Limpar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: Receitas -->
+                <section class="tab-content" id="tab-receitas">
+                    <div class="prescription-container">
                         <h2 class="section-title">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/></svg>
-                            Evolução Clínica - Método SOAP
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 4v16M18 4v16M4 8h16M4 12h16M4 16h16" stroke="currentColor" stroke-width="2"/></svg>
+                            Receituário
                         </h2>
-                        <div class="soap-date">
-                            <span>Data:</span>
-                            <input type="date" class="neon-input date-input" id="soapDate" value="">
-                        </div>
-                    </div>
 
-                    <div class="soap-grid">
-                        <!-- Subjetivo -->
-                        <div class="glass-card soap-block">
-                            <div class="soap-block-header">
-                                <h3 class="card-title">S - Subjetivo</h3>
-                                <span class="soap-badge">Queixa Principal</span>
+                        <div class="glass-card prescription-form">
+                            <div class="form-row">
+                                <div class="form-group full"><label>Paciente:</label><input type="text" class="neon-input" id="presPatient" value="Maria da Silva" readonly></div>
                             </div>
-                            <textarea class="neon-textarea" id="soapS" placeholder="Descreva a queixa principal, história da doença atual, sintomas..." rows="4"></textarea>
-                            <div class="structured-checkboxes">
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Dor">
-                                    <span>Dor</span>
-                                </label>
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Febre">
-                                    <span>Febre</span>
-                                </label>
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Tontura">
-                                    <span>Tontura</span>
-                                </label>
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Náusea">
-                                    <span>Náusea</span>
-                                </label>
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Cefaleia">
-                                    <span>Cefaleia</span>
-                                </label>
-                                <label class="neon-checkbox">
-                                    <input type="checkbox" value="Dispneia">
-                                    <span>Dispneia</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Objetivo -->
-                        <div class="glass-card soap-block">
-                            <div class="soap-block-header">
-                                <h3 class="card-title">O - Objetivo</h3>
-                                <span class="soap-badge badge-green">Exame Físico</span>
-                            </div>
-                            <textarea class="neon-textarea" id="soapO" placeholder="Achados do exame físico, sinais vitais, exames complementares..." rows="4"></textarea>
-                            <div class="vitals-inputs">
-                                <div class="input-group">
-                                    <label>PA:</label>
-                                    <input type="text" class="neon-input small" placeholder="120/80">
+                            <div class="form-row">
+                                <div class="form-group"><label>Tipo:</label>
+                                    <select class="neon-select" id="presType">
+                                        <option value="simples">Receita Simples</option>
+                                        <option value="controlada">Controlada (B1)</option>
+                                        <option value="antimicrobiano">Antimicrobiano</option>
+                                        <option value="odontologica">Odontológica</option>
+                                    </select>
                                 </div>
-                                <div class="input-group">
-                                    <label>FC:</label>
-                                    <input type="number" class="neon-input small" placeholder="72">
+                                <div class="form-group"><label>Validade:</label><input type="number" class="neon-input" id="presValidade" value="30" min="1" max="365"></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card medication-search">
+                            <h3 class="card-title">Buscar Medicação</h3>
+                            <div class="search-container">
+                                <input type="text" class="neon-input search-input" id="medSearch" placeholder="Digite o nome..." oninput="searchMedication(this.value)">
+                                <div class="search-results" id="searchResults"></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card prescription-items">
+                            <h3 class="card-title">Medicamentos Prescritos</h3>
+                            <div class="table-wrapper">
+                                <table class="prescription-table" id="prescriptionTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Medicamento</th>
+                                            <th>Posologia</th>
+                                            <th>Via</th>
+                                            <th>Qtd</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="prescriptionBody"></tbody>
+                                </table>
+                            </div>
+                            <div class="prescription-obs">
+                                <label for="presObs">Observações:</label>
+                                <textarea class="neon-textarea" id="presObs" rows="2" placeholder="Informações adicionais..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="prescription-actions">
+                            <button class="neon-btn primary" onclick="generatePrescription()">Gerar Receita</button>
+                            <button class="neon-btn" onclick="exportDocx('receita')">Exportar .docx</button>
+                            <button class="neon-btn" onclick="window.print()">Imprimir</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: Atestados -->
+                <section class="tab-content" id="tab-atestados">
+                    <div class="certificate-container">
+                        <h2 class="section-title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2"/></svg>
+                            Atestados
+                        </h2>
+
+                        <div class="glass-card certificate-form">
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label>Tipo:</label>
+                                    <select class="neon-select" id="certType" onchange="updateCertForm()">
+                                        <option value="comparecimento">Comparecimento</option>
+                                        <option value="afastamento">Afastamento</option>
+                                        <option value="aptidao">Aptidão Física</option>
+                                        <option value="declaracao">Declaração</option>
+                                    </select>
                                 </div>
-                                <div class="input-group">
-                                    <label>Temp:</label>
-                                    <input type="text" class="neon-input small" placeholder="36.5">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half"><label>Paciente:</label><input type="text" class="neon-input" id="certPatient" value="Maria da Silva"></div>
+                                <div class="form-group half"><label>CPF:</label><input type="text" class="neon-input" id="certCPF" value="123.456.789-00"></div>
+                            </div>
+                            <div class="form-row" id="daysRow">
+                                <div class="form-group half"><label>Dias:</label><input type="number" class="neon-input" id="certDays" value="1" min="1" max="365" oninput="updateDaysExtenso()"></div>
+                                <div class="form-group half"><label>Extenso:</label><input type="text" class="neon-input" id="certDaysExtenso" value="um" readonly></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half"><label>CID (opcional):</label><input type="text" class="neon-input" id="certCID" placeholder="Ex: I10"></div>
+                                <div class="form-group half"><label>Data:</label><input type="date" class="neon-input" id="certDate"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full"><label>Observações:</label><textarea class="neon-textarea" id="certObs" rows="2" placeholder="Informações complementares..."></textarea></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card certificate-preview" id="certPreview">
+                            <h3 class="card-title">Pré-visualização</h3>
+                            <div class="preview-content" id="previewContent"></div>
+                        </div>
+
+                        <div class="certificate-actions">
+                            <button class="neon-btn primary" onclick="generateCertificate()">Gerar Atestado</button>
+                            <button class="neon-btn" onclick="exportDocx('atestado')">Exportar .docx</button>
+                            <button class="neon-btn" onclick="window.print()">Imprimir</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: Orçamentos -->
+                <section class="tab-content" id="tab-orcamentos">
+                    <div class="budget-container">
+                        <h2 class="section-title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/><path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="2"/></svg>
+                            Orçamentos
+                        </h2>
+
+                        <div class="glass-card budget-form">
+                            <div class="form-row">
+                                <div class="form-group full"><label>Paciente:</label><input type="text" class="neon-input" id="budgetPatient" value="Maria da Silva" readonly></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label>Procedimento:</label>
+                                    <select class="neon-select" id="budgetProcedure">
+                                        <option value="">Selecione...</option>
+                                        <option value="consulta">Consulta - R$ 150,00</option>
+                                        <option value="limpeza">Limpeza - R$ 200,00</option>
+                                        <option value="restauracao">Restauração - R$ 350,00</option>
+                                        <option value="extração">Extração - R$ 400,00</option>
+                                        <option value="canal">Canal - R$ 800,00</option>
+                                        <option value="protese">Prótese - R$ 1.500,00</option>
+                                        <option value="implante">Implante - R$ 3.000,00</option>
+                                    </select>
                                 </div>
-                                <div class="input-group">
-                                    <label>Sat:</label>
-                                    <input type="text" class="neon-input small" placeholder="98">
+                                <div class="form-group"><label>Quantidade:</label><input type="number" class="neon-input" id="budgetQty" value="1" min="1"></div>
+                                <div class="form-group"><label>Desconto (%):</label><input type="number" class="neon-input" id="budgetDiscount" value="0" min="0" max="100"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half"><label>Forma Pagamento:</label>
+                                    <select class="neon-select" id="budgetPayment">
+                                        <option value="dinheiro">Dinheiro</option>
+                                        <option value="credito">Cartão Crédito</option>
+                                        <option value="debito">Cartão Débito</option>
+                                        <option value="pix">PIX</option>
+                                        <option value="parcelado">Parcelado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group half" id="parcelasGroup" style="display:none;">
+                                    <label>Parcelas:</label>
+                                    <input type="number" class="neon-input" id="budgetInstallments" value="1" min="1" max="12">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Avaliação -->
-                        <div class="glass-card soap-block">
-                            <div class="soap-block-header">
-                                <h3 class="card-title">A - Avaliação</h3>
-                                <span class="soap-badge badge-purple">Diagnóstico</span>
-                            </div>
-                            <textarea class="neon-textarea" id="soapA" placeholder="Diagnóstico, hipóteses diagnósticas, CID-10..." rows="4"></textarea>
-                            <div class="cid-input">
-                                <label>CID-10 Principal:</label>
-                                <input type="text" class="neon-input" id="cidInput" placeholder="Ex: I10, J00, E11" list="cidList">
-                                <datalist id="cidList">
-                                    <option value="I10 - HAS Essencial">
-                                    <option value="J00 - Rinofaringite Aguda">
-                                    <option value="E11 - DM Tipo 2">
-                                    <option value="K02 - Cárie Dentária">
-                                    <option value="N39 - Infecção Urinária">
-                                </datalist>
-                            </div>
-                        </div>
-
-                        <!-- Plano -->
-                        <div class="glass-card soap-block">
-                            <div class="soap-block-header">
-                                <h3 class="card-title">P - Plano</h3>
-                                <span class="soap-badge badge-orange">Conduta</span>
-                            </div>
-                            <textarea class="neon-textarea" id="soapP" placeholder="Conduta, exames solicitados, encaminhamentos, medicamentos prescritos..." rows="4"></textarea>
-                            <div class="plan-actions">
-                                <button class="neon-btn" onclick="addPrescription()">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2"/></svg>
-                                    Adicionar Prescrição
-                                </button>
-                                <button class="neon-btn" onclick="addExam()">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 3h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z" stroke="currentColor" stroke-width="2"/></svg>
-                                    Solicitar Exame
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="soap-actions">
-                        <button class="neon-btn primary" onclick="saveSOAP()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2"/><path d="M17 21v-8H7v8M7 3v5h8" stroke="currentColor" stroke-width="2"/></svg>
-                            Salvar Evolução
-                        </button>
-                        <button class="neon-btn" onclick="clearSOAP()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M8 6V4h8v2" stroke="currentColor" stroke-width="2"/><path d="M19 6l-1 14H6L5 6" stroke="currentColor" stroke-width="2"/></svg>
-                            Limpar
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB: Receitas -->
-            <section class="tab-content" id="tab-receitas">
-                <div class="prescription-container">
-                    <h2 class="section-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 4v16M18 4v16M4 8h16M4 12h16M4 16h16" stroke="currentColor" stroke-width="2"/></svg>
-                        Receituário Médico / Odontológico
-                    </h2>
-
-                    <div class="glass-card prescription-form">
-                        <div class="form-row">
-                            <div class="form-group full">
-                                <label>Paciente:</label>
-                                <input type="text" class="neon-input" id="presPatient" value="Maria da Silva" readonly>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Tipo de Receita:</label>
-                                <select class="neon-select" id="presType">
-                                    <option value="receita_simples">Receita Simples</option>
-                                    <option value="receita_controlada">Receita Controlada (B1)</option>
-                                    <option value="receita_antimicrobiano">Antimicrobiano</option>
-                                    <option value="receita_odontologica">Receita Odontológica</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Validade (dias):</label>
-                                <input type="number" class="neon-input" id="presValidade" value="30" min="1" max="365">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card medication-search">
-                        <h3 class="card-title">Buscar Medicação</h3>
-                        <div class="search-container">
-                            <input type="text" class="neon-input search-input" id="medSearch" placeholder="Digite o nome do medicamento..." oninput="searchMedication(this.value)">
-                            <div class="search-results" id="searchResults"></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card prescription-items">
-                        <h3 class="card-title">Medicamentos Prescritos</h3>
-                        <div class="prescription-table-wrapper">
-                            <table class="prescription-table" id="prescriptionTable">
+                        <div class="glass-card budget-items">
+                            <h3 class="card-title">Itens do Orçamento</h3>
+                            <table class="budget-table" id="budgetTable">
                                 <thead>
                                     <tr>
-                                        <th>Medicamento</th>
-                                        <th>Posologia</th>
-                                        <th>Via</th>
-                                        <th>Quantidade</th>
+                                        <th>Procedimento</th>
+                                        <th>Valor Unit.</th>
+                                        <th>Qtd</th>
+                                        <th>Total</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
-                                <tbody id="prescriptionBody">
-                                    <!-- Items serão inseridos via JS -->
-                                </tbody>
+                                <tbody id="budgetBody"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">Subtotal:</td>
+                                        <td id="budgetSubtotal">R$ 0,00</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Desconto:</td>
+                                        <td id="budgetDiscountValue">R$ 0,00</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><strong>Total:</strong></td>
+                                        <td id="budgetTotal"><strong>R$ 0,00</strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
                             </table>
+                            <button class="neon-btn" onclick="addBudgetItem()">Adicionar Item</button>
                         </div>
-                        <div class="prescription-total">
-                            <div class="form-group">
-                                <label>Observações:</label>
-                                <textarea class="neon-textarea" id="presObs" rows="3" placeholder="Informações adicionais..."></textarea>
-                            </div>
+
+                        <div class="budget-actions">
+                            <button class="neon-btn primary" onclick="generateBudget()">Gerar Orçamento</button>
+                            <button class="neon-btn" onclick="exportDocx('orcamento')">Exportar .docx</button>
+                            <button class="neon-btn" onclick="window.print()">Imprimir</button>
                         </div>
                     </div>
+                </section>
+            </div>
 
-                    <div class="prescription-actions">
-                        <button class="neon-btn primary" onclick="generatePrescription()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5l-7 7h4v7h6v-7h4l-7-7z" stroke="currentColor" stroke-width="2"/></svg>
-                            Gerar Receita
-                        </button>
-                        <button class="neon-btn" onclick="exportDocx('receita')">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3" stroke="currentColor" stroke-width="2"/></svg>
-                            Exportar .docx
-                        </button>
-                        <button class="neon-btn" onclick="window.print()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2"/><path d="M6 14h12v8H6z" stroke="currentColor" stroke-width="2"/></svg>
-                            Imprimir
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB: Atestados -->
-            <section class="tab-content" id="tab-atestados">
-                <div class="certificate-container">
-                    <h2 class="section-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2"/></svg>
-                        Gerador de Atestados / Declarações
-                    </h2>
-
-                    <div class="glass-card certificate-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Tipo de Atestado:</label>
-                                <select class="neon-select" id="certType" onchange="updateCertForm()">
-                                    <option value="comparecimento">Atestado de Comparecimento</option>
-                                    <option value="afastamento">Atestado de Afastamento</option>
-                                    <option value="aptidao">Atestado de Aptidão Física</option>
-                                    <option value="declaracao">Declaração de Saúde</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>Nome do Paciente:</label>
-                                <input type="text" class="neon-input" id="certPatient" value="Maria da Silva">
-                            </div>
-                            <div class="form-group half">
-                                <label>CPF:</label>
-                                <input type="text" class="neon-input" id="certCPF" value="123.456.789-00">
-                            </div>
-                        </div>
-                        <div class="form-row" id="daysRow">
-                            <div class="form-group half">
-                                <label>Quantidade de Dias:</label>
-                                <input type="number" class="neon-input" id="certDays" value="1" min="1" max="365" oninput="updateDaysExtenso()">
-                            </div>
-                            <div class="form-group half">
-                                <label>Dias por Extenso:</label>
-                                <input type="text" class="neon-input" id="certDaysExtenso" value="um" readonly>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>CID (opcional):</label>
-                                <input type="text" class="neon-input" id="certCID" placeholder="Ex: I10">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group full">
-                                <label>Observações:</label>
-                                <textarea class="neon-textarea" id="certObs" rows="3" placeholder="Informações complementares..."></textarea>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label>Data:</label>
-                                <input type="date" class="neon-input" id="certDate" value="">
-                            </div>
-                            <div class="form-group half">
-                                <label>Hora:</label>
-                                <input type="time" class="neon-input" id="certTime" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="certificate-preview glass-card" id="certPreview">
-                        <h3 class="card-title">Pré-visualização</h3>
-                        <div class="preview-content" id="previewContent">
-                            <!-- Preview gerado dinamicamente -->
-                        </div>
-                    </div>
-
-                    <div class="certificate-actions">
-                        <button class="neon-btn primary" onclick="generateCertificate()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5l-7 7h4v7h6v-7h4l-7-7z" stroke="currentColor" stroke-width="2"/></svg>
-                            Gerar Atestado
-                        </button>
-                        <button class="neon-btn" onclick="exportDocx('atestado')">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3" stroke="currentColor" stroke-width="2"/></svg>
-                            Exportar .docx
-                        </button>
-                        <button class="neon-btn" onclick="window.print()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2"/><path d="M6 14h12v8H6z" stroke="currentColor" stroke-width="2"/></svg>
-                            Imprimir
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB: Orçamentos -->
-            <section class="tab-content" id="tab-orcamentos">
-                <div class="budget-container">
-                    <h2 class="section-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/><path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="2"/></
+           
